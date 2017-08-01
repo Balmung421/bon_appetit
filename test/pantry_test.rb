@@ -22,4 +22,10 @@ class PantryTest < Minitest::Test
     assert_equal expected, pantry.stock_check("Cheese")
   end
 
+  def test_for_restock
+    pantry = Pantry.new
+    expected = 10
+    assert_equal expected, pantry.restock("Cheese", 10)
+  end
+
 end
