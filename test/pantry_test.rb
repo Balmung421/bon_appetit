@@ -30,7 +30,6 @@ class PantryTest < Minitest::Test
   end
 
   def test_for_adding_to_restock
-    skip
     pantry = Pantry.new
     expected = 30
     pantry.restock("Cheese", 10)
