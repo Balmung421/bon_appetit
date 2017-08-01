@@ -48,4 +48,16 @@ class PantryTest < Minitest::Test
     assert_instance_of Recipe, r
   end
 
+  def test_for_convert_units
+    skip
+    r = Recipe.new("Spicy Cheese Pizza")
+    r.add_ingredient("Cayenne Pepper", 0.025)
+    r.add_ingredient("Cheese", 75)
+    r.add_ingredient("Flour", 500)
+    pantry = Pantry.new
+    assert_equal ({"Cayenne Pepper" => {quantity: 25, units: "Milli-Units"},
+        "Cheese"         => {quantity: 75, units: "Universal Units"},
+        "Flour"          => {quantity: 5, units: "Centi-Units"}}), pantry.convert_units(r)
+  end
+
 end

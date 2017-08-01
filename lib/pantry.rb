@@ -1,5 +1,4 @@
 require 'pry'
-
 class Pantry
 
   attr_reader :stock
@@ -24,6 +23,19 @@ class Pantry
     else
       @stock[item] = amount
     end
+  end
+
+  def cent_units(amount)
+    amount/100
+  end
+
+  def milli_units(amount)
+    amount*1000
+  end
+
+  def convert_units(recipe)
+    #we will want to convert the units above
+
   end
 
 end
