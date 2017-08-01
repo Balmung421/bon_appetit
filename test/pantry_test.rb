@@ -1,6 +1,7 @@
 require './lib/pantry'
 require 'minitest/autorun'
 require 'minitest/pride'
+require './lib/recipe'
 require 'pry'
 
 class PantryTest < Minitest::Test
@@ -35,6 +36,16 @@ class PantryTest < Minitest::Test
     pantry.restock("Cheese", 10)
     pantry.restock("Cheese", 20)
     assert_equal expected, pantry.stock_check("Cheese")
+  end
+
+  def test_for_recipe_build_per_spec
+    r = Recipe.new("Spicy Cheese Pizza")
+    r.add_ingredient("Cayenne Pepper", 0.025)
+    r.add_ingredient("Cheese", 75)
+    r.add_ingredient("Flour", 500)
+    pantry = Pantry.new
+    assert_instance_of Pantry, pantry
+    assert_instance_of Recipe, r
   end
 
 end
